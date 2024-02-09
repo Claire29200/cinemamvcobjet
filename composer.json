@@ -1,0 +1,17 @@
+{
+    "name": "29010-75-15/cinemamvcobjet",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "cinemamvcobjet\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "claire"
+        }
+    ],
+    "require": {
+        "klein/klein": "^2.1"
+    }
+}
