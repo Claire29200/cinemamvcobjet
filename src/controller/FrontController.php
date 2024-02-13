@@ -20,14 +20,16 @@ class FrontController
     {
        $acteurs = $this->acteursService->getAllActors();
        echo '<pre>';
-       print_r($acteurs);
+      // print_r($acteurs);
+       require('./src/view/acteurs.php');
     }
 
     public function acteur($id)
     {
        $acteur = $this->acteursService->getById($id);
        echo '<pre>';
-       print_r($acteur);
+       require('./src/view/acteurs.php');
+       //print_r($acteur);
     }
 
 
@@ -36,16 +38,22 @@ class FrontController
     {
        $realisateurs = $this->realisateursService->getAllRealisateurs();
        echo '<pre>';
-       print_r($realisateurs);
+       require('./src/view/realisateurs.php');
+       //print_r($realisateurs);
     }
 
     public function realisateur($id)
     {
        $realisateur = $this->realisateursService->getById($id);
        echo '<pre>';
-       print_r($realisateur);
+       require('./src/view/realisateurs.php');
+      // print_r($realisateur);
     }
 
+    public function addgenre() {
+      // echo $this->twig->render('addgenre.html.twig'); 
+      require './src/view/f_genre.php'; // formulaire de creation de genre.
+   }
 
    
 }
