@@ -8,8 +8,6 @@
       img {
          max-width: 200px;
       }
-
-
       
       </style>
 </head>
