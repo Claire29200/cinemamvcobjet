@@ -2,17 +2,17 @@
 
 namespace cinemamvcobjet\model\service;
 
-use mvcobjet\Models\Daos\ActorDao;
-use mvcobjet\Models\Daos\DirectorDao;
-use mvcobjet\Models\Daos\GenreDao;
-use mvcobjet\Models\Daos\MovieDao;
+use cinemamvcobjet\model\entities\Acteurs;
+use cinemamvcobjet\model\entities\Genres;
+use cinemamvcobjet\model\entities\Films;
+use cinemamvcobjet\model\entities\Realisateurs;
 
-class MovieService
+class FilmsService
 {
     private $movieDao;
     private $actorDao;
     private $genreDao;
-    private $directorDao;
+    private $Dao;
 
     public function __construct()
     {

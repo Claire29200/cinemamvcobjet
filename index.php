@@ -55,6 +55,15 @@ $route->respond('GET','/genre/[:id]', function($request,$response) use($fc) {
     $fc->genre($request->id); 
  });
 
+ $route->respond('GET','/films', function() use($fc) {
+   $fc->films(); 
+});
+
+$route->respond('GET','/film/[:id]', function($request,$response) use($fc) {
+  
+    $fc->film($request->id); 
+ });
+
 $route->dispatch();
 
 ?>
