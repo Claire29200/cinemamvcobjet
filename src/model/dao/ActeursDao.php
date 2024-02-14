@@ -63,7 +63,7 @@ class ActeursDao extends BaseDao
     {  
         $acteurs = new Acteurs();
 
-        $acteurs->setId($fields['id']||null)
+        $acteurs->setId($fields['id'])
               ->setFirstName($fields['nom']) 
               ->setLastName($fields['prenom'])
               ->setPhoto($fields['photo']) ;      

@@ -12,7 +12,7 @@ class Acteurs
 
 
 
-    public function setId(int $id = null)
+    public function setId(int $id )
     {
         $this->id = $id;
         return $this;

@@ -46,6 +46,15 @@ $route->respond('GET','/acteur/[:id]', function($request,$response) use($fc) {
      $fc->realisateur($request->id); 
   });
 
+  $route->respond('GET','/genres', function() use($fc) {
+   $fc->genres(); 
+});
+
+$route->respond('GET','/genre/[:id]', function($request,$response) use($fc) {
+  
+    $fc->genre($request->id); 
+ });
+
 $route->dispatch();
 
 ?>

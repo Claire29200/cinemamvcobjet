@@ -44,14 +44,6 @@ class MovieService
 
 
 
-
-
-
-
-
-
-
-
     //
     // on a tout ce qu'il faut pour créer l'objet.
     //

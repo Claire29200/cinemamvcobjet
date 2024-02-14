@@ -63,7 +63,7 @@ class RealisateursDao extends BaseDao
     {  
         $realisateurs = new Realisateurs();
 
-        $realisateurs->setId($fields['id']||null)
+        $realisateurs->setId($fields['id'])
               ->setFirstName($fields['nom']) 
               ->setLastName($fields['prenom'])
               ->setPhoto($fields['photo']) ;      

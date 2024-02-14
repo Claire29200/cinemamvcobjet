@@ -12,7 +12,7 @@ class Film
     private $acteurs ;
 
 
-      public function setId_film(int $id_film = null)
+      public function setId_film(int $id_film )
     {   $this->id_film = $id_film; 
     return $this;}
 
@@ -27,8 +27,8 @@ class Film
         return $this;
     }
 
-    public function addActor($actor) {
-        $this->acteurs[] = $actor;
+    public function addActeur($acteurs) {
+        $this->acteurs[] = $acteur;
         return $this;
     }
 
