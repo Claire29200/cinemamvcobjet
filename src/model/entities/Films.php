@@ -2,7 +2,7 @@
 
 namespace cinemamvcobjet\model\entities;
 
-class Film 
+class Films 
 {
     private $id_film;
     private $date_de_sortie;
