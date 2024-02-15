@@ -2,20 +2,25 @@
 
 namespace cinemamvcobjet\controller;
 
-
+use cinemamvcobjet\model\service\FilmsService; 
 use cinemamvcobjet\model\service\ActeursService; 
 use cinemamvcobjet\model\service\RealisateursService; 
 use cinemamvcobjet\model\service\GenresService; 
 
+
 class FrontController
 {
-      
-     private $acteursService, $realisateursService, $genresService  ;
+   private $filmsService;
+   private $acteursService;  
+   private $realisateursService; 
+   private $genresService ;
     
-     public function __construct(){
+   public function __construct() {
+         $this->filmsService = new FilmsService(); 
          $this->acteursService = new ActeursService(); 
+         print_r($this->acteursService);
          $this->realisateursService = new RealisateursService();
-         $this->genresService = new GenresService();     
+         $this->genresService = new GenresService();    
     }
 
     public function acteurs()
@@ -72,6 +77,19 @@ class FrontController
       echo '<pre>';
       require('./src/view/genre.php');
      // print_r($genre);
+   }
+
+   public function films(){
+      $films = $this->filmsService->getAllFilms();
+      echo '<pre>';
+      require('./src/view/films.php');
+     
+   }
+
+   public function film($id){
+      $film = $this->filmsService->getById($id);
+      echo '<pre>';
+      require('./src/view/film.php');
    }
 }
 

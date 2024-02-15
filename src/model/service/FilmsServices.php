@@ -2,24 +2,19 @@
 
 namespace cinemamvcobjet\model\service;
 
-use cinemamvcobjet\model\entities\Acteurs;
-use cinemamvcobjet\model\entities\Genres;
-use cinemamvcobjet\model\entities\Films;
-use cinemamvcobjet\model\entities\Realisateurs;
-
 class FilmsService
 {
     private $movieDao;
     private $actorDao;
     private $genreDao;
-    private $Dao;
-
+    private $directorDao;
+  
     public function __construct()
     {
-        $this->movieDao = new MovieDao();
-        $this->actorDao = new ActorDao();
-        $this->directorDao = new DirectorDao();
-        $this->genreDao = new GenreDao();
+        $this->movieDao = new FilmsDao();
+        $this->actorDao = new ActeursDao();
+        $this->directorDao = new RealisateursDao();
+        $this->genreDao = new GenresDao();
     }
 
     public function getbyId($id)
@@ -32,6 +27,8 @@ class FilmsService
             // fonction dans la classe Movie sans Entities
             $movie->addActor($actor);  // fonction ajoute 1 acteur à l'objet movie (voire classe/entité Movie)
         }
+        echo "<pre>";
+        print_r($movies);die;
 
         $genre = $this->genreDao->findByMovie($id); // recherche du genre 
         $movie->setGenre($genre);
@@ -42,45 +39,43 @@ class FilmsService
         return $movie;
     }
 
-
-
     //
     // on a tout ce qu'il faut pour créer l'objet.
     //
-    public function create($movieData)
-    {
-        $movie = $this->movieDao->createObjectFromFields($movieData);
-        $genre = $this->genreDao->findById($movieData['genre']);
-        $movie->setGenre($genre);
+    // public function create($movieData)
+    // {
+    //     $movie = $this->movieDao->createObjectFromFields($movieData);
+    //     $genre = $this->genreDao->findById($movieData['genre']);
+    //     $movie->setGenre($genre);
 
-        $director = $this->directorDao->findById($movieData['director']);
-        $movie->setDirector($director);
+    //     $director = $this->directorDao->findById($movieData['director']);
+    //     $movie->setDirector($director);
 
-        $this->movieDao->create($movie);
-    }
+    //     $this->movieDao->create($movie);
+    // }
 
 
-    public function update($id,$movieData)
-    {
-        $movie = $this->movieDao->createObjectFromFields($movieData);
+    // public function update($id,$movieData)
+    // {
+    //     $movie = $this->movieDao->createObjectFromFields($movieData);
           
-        $genre = $this->genreDao->findById($movieData['genre']);
-        $movie->setGenre($genre);
+    //     $genre = $this->genreDao->findById($movieData['genre']);
+    //     $movie->setGenre($genre);
 
-        $director = $this->directorDao->findById($movieData['director']);
-        $movie->setDirector($director);
+    //     $director = $this->directorDao->findById($movieData['director']);
+    //     $movie->setDirector($director);
 
-        $this->movieDao->update($id,$movie);
-    }
+    //     $this->movieDao->update($id,$movie);
+    // }
 
-    public function addActorToFilm($lepost) {
-     //  $lepost recupère [  'movieId' => 1 ,'actorId' => 6 ]
+    // public function addActorToFilm($lepost) {
+    //  //  $lepost recupère [  'movieId' => 1 ,'actorId' => 6 ]
 
-        $movie = $this->movieDao->findById($lepost['movieId']); 
-        $actor = $this->actorDao->findById($lepost['actorId']); 
+    //     $movie = $this->movieDao->findById($lepost['movieId']); 
+    //     $actor = $this->actorDao->findById($lepost['actorId']); 
         
-        $this->movieDao->addActorToFilm( $movie , $actor );
+    //     $this->movieDao->addActorToFilm( $movie , $actor );
         
-    }
+    // }
 
 }

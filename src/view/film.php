@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>   <?= $film->getName() ?>
-        <?= $realisateur->getDateDeSortie() ?></h1>
-       <p><img src="<?= $realisateur->getAffiche() ?>" /></p>
+        <?= $film->getDate() ?></h1>
+       <p><img src="<?= $film->getAffiche() ?>" /></p>
 </body>
 </html>
