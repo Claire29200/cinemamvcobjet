@@ -18,7 +18,7 @@ class FrontController
    public function __construct() {
          $this->filmsService = new FilmsService(); 
          $this->acteursService = new ActeursService(); 
-         print_r($this->acteursService);
+      
          $this->realisateursService = new RealisateursService();
          $this->genresService = new GenresService();    
     }
@@ -81,7 +81,7 @@ class FrontController
 
    public function films(){
       $films = $this->filmsService->getAllFilms();
-      echo '<pre>';
+      
       require('./src/view/films.php');
      
    }

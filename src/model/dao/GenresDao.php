@@ -43,17 +43,16 @@ class GenresDao extends BaseDao
     public function findByMovie($movieId)
     {
         $stmt = $this->db->prepare("
-            SELECT id_genre, nom_genre as nom
+            SELECT genre.* 
             FROM genre
             INNER JOIN films
-            ON genre.id_genre = films.id_genre       
-            
-        ");
+            ON genre.id_genre = films.id_genre   
+            AND films.id_film = :id_film");    
 
-        $res = $stmt->execute([':id_genre' => $movieId]);
+        $res = $stmt->execute([':id_film' => $movieId]);
 
         if ($res) {
-            return $stmt->fetchAll(\PDO::FETCH_CLASS, Genres::class);
+            return $stmt->fetch(\PDO::FETCH_ASSOC);
         } else {
             throw new \PDOException($stmt->errorInfo()[2]);
         }

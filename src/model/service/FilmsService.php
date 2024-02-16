@@ -2,41 +2,56 @@
 
 namespace cinemamvcobjet\model\service;
 
+use cinemamvcobjet\model\dao\FilmsDao; 
+use cinemamvcobjet\model\dao\ActeursDao; 
+use cinemamvcobjet\model\dao\GenresDao; 
+use cinemamvcobjet\model\dao\RealisateursDao; 
+
+
 class FilmsService
 {
-    private $movieDao;
-    private $actorDao;
-    private $genreDao;
-    private $directorDao;
+    private $filmsDao;
+    private $acteursDao;
+    private $genresDao;
+    private $realisateursDao;
   
     public function __construct()
     {
-        $this->movieDao = new FilmsDao();
-        $this->actorDao = new ActeursDao();
-        $this->directorDao = new RealisateursDao();
-        $this->genreDao = new GenresDao();
+        $this->filmsDao = new FilmsDao();
+        $this->acteursDao = new ActeursDao();
+        $this->realisateursDao = new RealisateursDao();
+        $this->genresDao = new GenresDao();
+    }
+
+    public function getAllFilms() {
+      $films = $this->filmsDao->findAll();
+      return $films;
     }
 
     public function getbyId($id)
     {     
         // creation de l'objet movie référencé par $movie.
-        $movie = $this->movieDao->findById($id);  // recherche dans movieDao ( $id = id du movie )
-       // renvoi de laliste des objets actors.
-        $actors = $this->actorDao->findByMovie($id); // recherche des acteurs pour 1 film 
-        foreach ($actors as $actor) {
+        $film = $this->filmsDao->findById($id);  // recherche dans movieDao ( $id = id du movie )
+       // renvoi de la liste des objets actors.
+        $acteurs = $this->acteursDao->findByMovie($id); // recherche des acteurs pour 1 film 
+   
+        // var_dump(get_class_methods($film));die();
+        foreach ($acteurs as $acteur) {
             // fonction dans la classe Movie sans Entities
-            $movie->addActor($actor);  // fonction ajoute 1 acteur à l'objet movie (voire classe/entité Movie)
-        }
-        echo "<pre>";
-        print_r($movies);die;
+         
+            $film->addActeur($acteur);  // fonction ajoute 1 acteur à l'objet movie (voire classe/entité Movie)
 
-        $genre = $this->genreDao->findByMovie($id); // recherche du genre 
-        $movie->setGenre($genre);
-        $director = $this->directorDao->findByMovie($id);
-        $movie->setDirector($director);
-        print_r($movie);
+        }
+        
+        
+        $genre = $this->genresDao->findByMovie($id); // recherche du genre 
+        $film->setGenre($genre);
+   
+        
+        $realisateur = $this->realisateursDao->findByMovie($id);
+        $film->setRealisateur($realisateur);
        /* $comments = $this->commentDao->findByMovie($id);*/
-        return $movie;
+        return $film;
     }
 
     //

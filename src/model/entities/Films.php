@@ -20,7 +20,7 @@ class Films
 
     public function setName($nom)
     {   
-        $this->id_film = $nom; 
+        $this->nom = $nom; 
         return $this;
     }
 
@@ -51,9 +51,30 @@ class Films
         return $this;
     }
 
-    public function addActeur($acteurs) {
+    public function addActeur($acteur) {
+        
         $this->acteurs[] = $acteur;
         return $this;
     }
 
+
+    /**
+     * Get the value of affiche
+     */ 
+    public function getAffiche()
+    {
+        return $this->affiche;
+    }
+
+    /**
+     * Set the value of affiche
+     *
+     * @return  self
+     */ 
+    public function setAffiche($affiche)
+    {
+        $this->affiche = $affiche;
+
+        return $this;
+    }
 }

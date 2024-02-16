@@ -11,17 +11,33 @@ class FilmsDao extends BaseDao
 {
    
     public function findAll(){
-        $stmt = $this->db->prepare("SELECT * FROM Film ");
+        $stmt = $this->db->prepare("SELECT * FROM films ");
         $res = $stmt->execute();
-       
+        $films = [];
         if ($res) {
-            $Films = [];
+            
             while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
                 
-                $Films[] = $this->createObjectFromFields($row);
+                $films[] = $this->createObjectFromFields($row);
             }
-           // print_r ($Films);die();
-            return $Films;
+        
+            return $films;
+    
+        } else {
+            throw new \PDOException($stmt->errorInfo()[2]);
+        }
+    }
+
+    public function findById($id){
+        $stmt = $this->db->prepare("SELECT * FROM films WHERE id_film = :id_film");
+        $res = $stmt->execute(['id_film'=>$id]);
+      
+        if ($res) {
+            
+            $row = $stmt->fetch(\PDO::FETCH_ASSOC) ;
+                
+               return $this->createObjectFromFields($row);
+    
         } else {
             throw new \PDOException($stmt->errorInfo()[2]);
         }
@@ -29,16 +45,18 @@ class FilmsDao extends BaseDao
 
     public function createObjectFromFields($fields)
     {  
-        $genres = new Genres();
+        //var_dump($fields); die();
+        $film = new Films();
 
-        $genres->setId($fields['id_film'])
+        $film->setId_film($fields['id_film'])
               ->setName($fields['nom'])
-              ->setDate($field['date_de_sortie'])
-              ->setAffiche($field['affiche']) ;
-            
-                   
-
-        return $genres;
+              ->setDate($fields['date_de_sortie'])
+              ->setAffiche($fields['affiche']) 
+              ->setGenre($fields['id_genre'])
+              ->setRealisateur($fields['id_realisateur']) ;    
+             //var_dump($film);die();        
+        return $film;
+        
     }
 }
 

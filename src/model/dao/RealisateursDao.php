@@ -43,16 +43,16 @@ class RealisateursDao extends BaseDao
     public function findByMovie($movieId)
     {
         $stmt = $this->db->prepare("
-            SELECT id, nom as nom, prenom as prenom
+            SELECT realisateur.* 
             FROM realisateur
-            INNER JOIN films_realisateur ON films_realisateur.realisateur_id = realisateur_id         
-            WHERE id_film = :idfilm
+            INNER JOIN films ON films.id_realisateur = realisateur.id         
+            WHERE films.id_film = :idfilm
         ");
 
         $res = $stmt->execute([':idfilm' => $movieId]);
 
         if ($res) {
-            return $stmt->fetchAll(\PDO::FETCH_CLASS, Realisateurs::class);
+            return $stmt->fetch(\PDO::FETCH_ASSOC);
         } else {
             throw new \PDOException($stmt->errorInfo()[2]);
         }

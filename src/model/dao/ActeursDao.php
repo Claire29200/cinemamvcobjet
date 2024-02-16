@@ -43,13 +43,14 @@ class ActeursDao extends BaseDao
     public function findByMovie($movieId)
     {
         $stmt = $this->db->prepare("
-        SELECT acteurs.* FROM `compose`,acteurs WHERE acteurs.id = compose.id_acteur AND id_film = :idfilm;
+        SELECT * FROM `compose`,acteurs WHERE acteurs.id = compose.id_acteur AND compose.id_film = :idfilm;
         ");
 
         $res = $stmt->execute([':idfilm' => $movieId]);
 
         if ($res) {
             $acteurs = [];
+            
             while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
                 
                 $acteurs[] = $this->createObjectFromFields($row);
@@ -70,7 +71,7 @@ class ActeursDao extends BaseDao
               ->setFirstName($fields['nom']) 
               ->setLastName($fields['prenom'])
               ->setPhoto($fields['photo']) ;      
-
+              
         return $acteurs;
     }
 }

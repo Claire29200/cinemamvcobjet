@@ -7,9 +7,10 @@
 </head>
 <body>
 <?php 
+//var_dump($films);die();
 foreach ($films as $film) { ?>
      <h1>   <?= $film->getName() ?>
-        <?= $film->getDateDeSortie() ?></h1>
+        <?= $film->getDate() ?></h1>
        <p><img src="<?= $film->getAffiche() ?>" /></p>
 <?php }
 
