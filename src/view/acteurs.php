@@ -8,13 +8,28 @@
 </head>
 <body>
 <?php 
-foreach ($acteurs as $acteur) { ?>
-     <h1>   <?= $acteur->getFirstName() ?>
-        <?= $acteur->getLastName() ?></h1>
-       <p><img src="<?= $acteur->getPhoto() ?>" /></p>
-<?php }
-
-
+require_once 'src/view/header.php';
 ?>
+<section>
+   <?php  
+foreach ($acteurs as $acteur) { ?>
+<div class="acteurs">
+   
+     <h1>  
+       <?= $acteur->getFirstName() ?>
+        <?= $acteur->getLastName() ?>
+      </h1>
+      <a href="acteur/<?= $acteur->getId() ?>"><img src="http://localhost/cinemamvc/public/<?= $acteur->getPhoto() ?>"
+                    width='175px' height='250px'></a>
+            <a href="updateacteur/<?= $acteur->getId() ?>"> modifier </a>
+            <a href="deleteacteur/<?= $acteur->getId() ?>"> supprimer </a>
+            
+
+        </div>
+
+       
+<?php }?>
+
+</section>
 </body>
 </html>

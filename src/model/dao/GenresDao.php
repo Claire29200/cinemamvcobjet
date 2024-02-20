@@ -69,5 +69,17 @@ class GenresDao extends BaseDao
 
         return $genres;
     }
+    public function create(Genres $genre)
+    {
+        $stmt = $this->db->prepare("INSERT INTO genre (genre) VALUES(:genre)");
+        $res = $stmt->execute([
+            ':genre' => $genre->getGenre()->getId(),
+
+        ]);
+
+        if (!$res) {
+            throw new \PDOException($stmt->errorInfo()[2]);
+        }
+    }
 }
 ?>

@@ -1,20 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Films</title>
-</head>
-<body>
-<?php 
-//var_dump($films);die();
-foreach ($films as $film) { ?>
-     <h1>   <?= $film->getName() ?>
-        <?= $film->getDate() ?></h1>
-       <p><img src="<?= $film->getAffiche() ?>" /></p>
-<?php }
-
-
+<?php
+require_once 'src/view/header.php';
 ?>
+
+<section>
+    <?php
+    foreach ($films as $film) { ?>
+        <div class="films">
+            <h1>
+                <?= $film->getName() ?>
+            </h1>
+
+            <a href="film/<?= $film->getId() ?>"><img src="http://localhost/cinemamvc/public/<?= $film->getAffiche() ?>"
+                    width='175px' height='250px'></a>
+            <a href="updatefilm/<?= $film->getId() ?>"> modifier </a>
+            <a href="deletefilm/<?= $film->getId() ?>"> supprimer </a>
+            <a href="addActorToFilm/<?= $film->getId() ?>"> ajouter un acteur </a>
+        </div>
+
+
+    <?php } ?>
+</section>
 </body>
-</html>

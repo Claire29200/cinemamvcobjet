@@ -7,5 +7,9 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'cinemamvcobjet\\' => array($baseDir . '/src'),
+    'Twig\\' => array($vendorDir . '/twig/twig/src'),
+    'Symfony\\Polyfill\\Php80\\' => array($vendorDir . '/symfony/polyfill-php80'),
+    'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
+    'Symfony\\Polyfill\\Ctype\\' => array($vendorDir . '/symfony/polyfill-ctype'),
     'Klein\\' => array($vendorDir . '/klein/klein/src/Klein'),
 );

@@ -25,6 +25,11 @@ class RealisateursService{
         $realisateur = $this->realisateursDao->findById($id);
         return $realisateur;
     }
+    public function create($realisateurData)
+    {
+        $realisateur = $this->realisateursDao->createObjectFromFields($realisateurData);
+        $this->realisateursDao->create($realisateur);
+    }
 }
 ?>
 

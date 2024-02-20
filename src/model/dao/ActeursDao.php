@@ -74,5 +74,19 @@ class ActeursDao extends BaseDao
               
         return $acteurs;
     }
+    
+    public function create(Acteurs $acteurs)
+    {
+        $stmt = $this->db->prepare("INSERT INTO acteurs (nom,prenom,photo) VALUES(:nom, :prenom, :photo)");
+        $res = $stmt->execute([
+            ':nom' => $acteur->getNom(),
+            ':prenom' => $acteur->getPrenom(),
+            ':photo' => $acteur->getPhoto(),
+        ]);
+
+        if (!$res) {
+            throw new \PDOException($stmt->errorInfo()[2]);
+        }
+    }
 }
 ?>

@@ -25,6 +25,13 @@ class ActeursService{
         $acteur = $this->acteursDao->findById($id);
         return $acteur;
     }
+    
+    public function create($acteurData)
+    {
+        $acteur = $this->acteursDao->createObjectFromFields($acteurData);
+        $this->actorDao->create($acteur);
+    }
+
 }
 ?>
 

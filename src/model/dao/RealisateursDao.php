@@ -70,5 +70,20 @@ class RealisateursDao extends BaseDao
 
         return $realisateurs;
     }
+    public function create(Realisateurs $realisateur)
+    {
+        $stmt = $this->db->prepare("INSERT INTO realisateur (nom,prenom, photo) VALUES(:nom,:prenom, :photo)");
+        $res = $stmt->execute
+        ([
+                ':nom' => $realisateur->getNom(),
+                ':prenom' => $realisateur->getPrenom(),
+                ':photo' => $realisateur->getPhoto(),
+            ]);
+
+        if (!$res) {
+            throw new \PDOException($stmt->errorInfo()[2]);
+        }
+    }
+
 }
 ?>
