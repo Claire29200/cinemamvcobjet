@@ -1,0 +1,14 @@
+{% extends "base.twig" %}
+
+{% block title %} Genres {% endblock %}
+
+{% block content%}
+
+{% for genres in genres %}
+
+{{genres.id}}&nbsp; 
+{{genres.genre}} <br/>
+
+{% endfor %}
+
+{% endblock %}

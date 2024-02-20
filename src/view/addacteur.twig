@@ -1,0 +1,16 @@
+{% extends "base.twig" %}
+
+{% block title %} Ajouter un acteur {% endblock %}
+
+{% block content%}
+<pre>
+
+<h2> Ajouter un acteur </h2>
+<form action="addacteur" method="POST">
+    <input type="text" name="nom" placeholder="nom">
+    <input type="text" name="prenom" placeholder="prenom">
+    <input type="text" name="photo" placeholder="photo">
+    <input type="submit" value="ajouter">
+</form>
+
+{% endblock %}

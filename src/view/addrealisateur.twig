@@ -1,0 +1,16 @@
+{% extends "base.twig" %}
+
+{% block title %} Ajouter un realisateur {% endblock %}
+
+{% block content%}
+<pre>
+
+<h2> Ajouter un realisateur </h2>
+<form action="addrealisateur" method="POST">
+    <input type="text" name="nom" placeholder="nom">
+    <input type="text" name="prenom" placeholder="prenom">
+    <input type="text" name="photo" placeholder="photo">
+    <input type="submit" value="ajouter">
+</form>
+
+{% endblock %}
