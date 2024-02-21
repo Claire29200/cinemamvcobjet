@@ -83,6 +83,7 @@ $route->respond('GET', '/addacteur', function () use ($fc) {
 $route->respond('POST', '/addacteur', function ($request, $response) use ($bc) {
    //paramsPost recupere les données du formulaire.
    $bc->addActeur($request->paramsPost()); // envoi $_POST au controller par la fonction addacteur
+   $response->redirect('acteurs')->send();
 });
 
 $route->respond('GET', '/addrealisateur', function () use ($fc) {

@@ -3,11 +3,11 @@
 {% block title %} Genres {% endblock %}
 
 {% block content%}
+ 
+{% for genre in genres %}
 
-{% for genres in genres %}
-
-{{genres.id}}&nbsp; 
-{{genres.genre}} <br/>
+{{genre.id}}&nbsp; 
+{{genre.name}} <br/>
 
 {% endfor %}
 

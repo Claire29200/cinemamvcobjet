@@ -33,7 +33,7 @@ class BackController
 
     public function addacteur($acteurData)
     {
-        $this->actorService->create($acteurData);
+        $this->acteurService->create($acteurData);
     }
     public function addrealisateur($realisateurData)
     {

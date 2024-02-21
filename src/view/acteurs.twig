@@ -4,9 +4,11 @@
 
 {% block content%}
 <section>
+{# <pre> #}
+{# {{ dump(acteurs)}} #}
 {% for acteur in acteurs %}
   <div class="acteurs">
- <h1> {{acteur.nom}} {{acteur.prenom}} </h1>
+ <h1> {{acteur.lastname}} {{acteur.firstname}} </h1>
 
   <a href="acteur/{{ acteur.id}}"><img   width='175px' height='250px' src="{{ acteur.photo }}" ></a>
    <a href="updateacteur/{{ acteur.id }}"> modifier </a>

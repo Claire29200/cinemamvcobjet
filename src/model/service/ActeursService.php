@@ -29,7 +29,7 @@ class ActeursService{
     public function create($acteurData)
     {
         $acteur = $this->acteursDao->createObjectFromFields($acteurData);
-        $this->actorDao->create($acteur);
+        $this->acteursDao->create($acteur);
     }
 
 }

@@ -45,7 +45,7 @@ class FrontController
     
     public function realisateurs()
     {
-      $realisateurs = $this->realisateurService->getAllRealisateurs();
+      $realisateurs = $this->realisateursService->getAllRealisateurs();
       // echo "<pre>";
       // print_r($realisateurs);
       // require('./src/view/realisateurs.php'); // formulaire du creation 
@@ -70,7 +70,7 @@ class FrontController
    
    public function genres()
     {
-        $genres = $this->genreService->getAllGenres();
+        $genres = $this->genresService->getAllGenres();
 
         // require('./src/view/genres.php'); // formulaire du creation 
 
@@ -116,10 +116,10 @@ class FrontController
    public function addfilm()
    {
 
-       $genres = $this->genreService->getAllGenres();
-       $realisateurs = $this->realisateurService->getAllRealisateurs();
+       $genres = $this->genresService->getAllGenres();
+       $realisateurs = $this->realisateursService->getAllRealisateurs();
        //require './src/view/f_film.php'; // formulaire de creation du film.
-       echo $this->twig->render('addfilm.twig', ["genres" => $genres, "realisateurs" => $realisateurs]);
+       echo $this->twig->render('f_film.twig', ["genres" => $genres, "realisateurs" => $realisateurs]);
 
    }
 

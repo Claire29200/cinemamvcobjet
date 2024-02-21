@@ -79,9 +79,9 @@ class ActeursDao extends BaseDao
     {
         $stmt = $this->db->prepare("INSERT INTO acteurs (nom,prenom,photo) VALUES(:nom, :prenom, :photo)");
         $res = $stmt->execute([
-            ':nom' => $acteur->getNom(),
-            ':prenom' => $acteur->getPrenom(),
-            ':photo' => $acteur->getPhoto(),
+            ':nom' => $acteurs->getLastName(),
+            ':prenom' => $acteurs->getFirstName(),
+            ':photo' => $acteurs->getPhoto(),
         ]);
 
         if (!$res) {

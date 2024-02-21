@@ -41,7 +41,7 @@ class Films
    
 
 
-    public function setGenre($genre) {
+    public function setGenre(Genre $genre) {
         $this->genre = $genre;
         return $this;
     }

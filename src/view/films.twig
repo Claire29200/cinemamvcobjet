@@ -6,7 +6,7 @@
 <section>
 {% for film in films %}
   <div class="films">
- <h1> {{film.nom}} {{film.affiche}} </h1>
+ <h1> {{film.name}} </h1>
 
   <a href="film/{{ film.id}}"><img   width='175px' height='250px' src="{{ film.affiche }}" ></a>
    <a href="updatefilm/{{ film.id }}"> modifier </a>

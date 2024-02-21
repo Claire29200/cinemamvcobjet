@@ -4,7 +4,7 @@ namespace cinemamvcobjet\model\entities;
 
 class Acteurs
 {
-    private int $id;
+    private $id;
     private string $acteurs_nom;
     private string $acteurs_prenom;
     private string $acteurs_photo;
@@ -12,7 +12,7 @@ class Acteurs
 
 
 
-    public function setId(int $id )
+    public function setId($id=null)
     {
         $this->id = $id;
         return $this;
@@ -44,12 +44,12 @@ class Acteurs
 
     public function getFirstName() : string
     {
-        return $this->acteurs_nom;
+        return $this->acteurs_prenom;
     }
 
     public function getLastName() : string
     {
-        return $this->acteurs_prenom;
+        return $this->acteurs_nom;
     }
 
     public function getPhoto() : string

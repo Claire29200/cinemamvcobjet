@@ -47,7 +47,7 @@ class FilmsService
         
         
         $genres = $this->genresDao->findByMovie($id); // recherche du genre 
-        $film->setGenre($genre);
+        $film->setGenre($genres);
    
         
         $realisateur = $this->realisateursDao->findByMovie($id);
@@ -57,7 +57,8 @@ class FilmsService
     }
     public function create($filmData)
     {
-        $films = $this->filmsDao->createObjectFromFields($filmData);
+       // creation de l'objet film
+        $film = $this->filmsDao->createObjectFromFields($filmData); // echo gettype($film)
         $genre = $this->genresDao->findById($filmData["id_genre"]);
         $film->setGenre($genre);
         $real = $this->realisateursDao->findById($filmData["id_realisateur"]);
