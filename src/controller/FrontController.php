@@ -17,13 +17,13 @@ class FrontController
    private $genresService ;
    private $twig;
     
-   public function __construct($ctwig) {
+   public function __construct($twig) {
          $this->filmsService = new FilmsService(); 
          $this->acteursService = new ActeursService(); 
       
          $this->realisateursService = new RealisateursService();
          $this->genresService = new GenresService();  
-         $this->twig = $ctwig;  
+         $this->twig = $twig;  
     }
 
     public function acteurs()
@@ -80,7 +80,7 @@ class FrontController
    {
       $genre = $this->genresService->getById($id);
       echo '<pre>';
-      require('./src/view/genre.php');
+      //require('./src/view/genre.php');
      // print_r($genre);
    }
 

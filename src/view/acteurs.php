@@ -19,7 +19,7 @@ foreach ($acteurs as $acteur) { ?>
        <?= $acteur->getFirstName() ?>
         <?= $acteur->getLastName() ?>
       </h1>
-      <a href="acteur/<?= $acteur->getId() ?>"><img src="http://localhost/cinemamvc/public/<?= $acteur->getPhoto() ?>"
+      <a href="acteur/<?= $acteur->getId() ?>"><img src="<?= $acteur->getPhoto() ?>"
                     width='175px' height='250px'></a>
             <a href="updateacteur/<?= $acteur->getId() ?>"> modifier </a>
             <a href="deleteacteur/<?= $acteur->getId() ?>"> supprimer </a>

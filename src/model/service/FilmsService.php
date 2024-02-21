@@ -31,21 +31,23 @@ class FilmsService
     public function getbyId($id)
     {     
         // creation de l'objet movie référencé par $movie.
-        $films = $this->filmsDao->findById($id);  // recherche dans movieDao ( $id = id du movie )
+        $film = $this->filmsDao->findById($id);  // recherche dans movieDao ( $id = id du movie )
        // renvoi de la liste des objets actors.
+      
         $acteurs = $this->acteursDao->findByMovie($id); // recherche des acteurs pour 1 film 
    
         // var_dump(get_class_methods($film));die();
         foreach ($acteurs as $acteur) {
             // fonction dans la classe Movie sans Entities
-         
+         //var_dump($acteur); die();
             $film->addActeur($acteur);  // fonction ajoute 1 acteur à l'objet movie (voire classe/entité Movie)
+            
 
         }
         
         
         $genres = $this->genresDao->findByMovie($id); // recherche du genre 
-        $films->setGenre($genre);
+        $film->setGenre($genre);
    
         
         $realisateur = $this->realisateursDao->findByMovie($id);
@@ -55,7 +57,7 @@ class FilmsService
     }
     public function create($filmData)
     {
-        $films = $this->filmDao->createObjectFromFields($filmData);
+        $films = $this->filmsDao->createObjectFromFields($filmData);
         $genre = $this->genresDao->findById($filmData["id_genre"]);
         $film->setGenre($genre);
         $real = $this->realisateursDao->findById($filmData["id_realisateur"]);

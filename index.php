@@ -3,7 +3,7 @@
 require_once "vendor/autoload.php";
 
 use cinemamvcobjet\controller\FrontController; 
-use cine\controller\BackController;
+use cinemamvcobjet\controller\BackController;
 
 //composer require twig/twig;
 
@@ -77,7 +77,7 @@ $route->respond('POST', '/addgenre', function ($request, $post) use ($bc) {
 });
 
 $route->respond('GET', '/addacteur', function () use ($fc) {
-   $fc->addacteur();  // affichage d'un formulaire de creation de l'acteur
+   $fc->addActeur();  // affichage d'un formulaire de creation de l'acteur
 });
 
 $route->respond('POST', '/addacteur', function ($request, $response) use ($bc) {

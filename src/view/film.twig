@@ -1,0 +1,34 @@
+{% extends "base.twig" %}
+
+{% block title %} Film {% endblock %}
+
+{% block content%}
+<section>
+
+<div class="film">
+ <h1> {{film.nom}} {{film.affiche}} </h1>
+
+  <a href="film/{{ film.id}}"><img   width='175px' height='250px' src="{{ film.affiche }}" ></a>
+ <h1>réalisé par :
+{{film.realisateur.nom}}&nbsp;{{film.realisateur.prenom}}
+       </h1>
+    
+<h1>les acteurs principaux:
+{% for acteur in film.acteurs %}
+{{acteur.nom}}&nbsp; {{acteur.prenom}}
+{% endfor %}
+ </h1>
+ <a href="film/ {{film.id}}"><img src=" {{film.acteurs}}"
+                    width='175px' height='250px'></a>
+</div>
+
+   <h1>genre:
+    {{film.genre.genre}}
+    </h1>
+    <h1>date de sortie:
+       {{film.date.date}}
+    </h1>
+
+</section>
+{% endblock %}
+

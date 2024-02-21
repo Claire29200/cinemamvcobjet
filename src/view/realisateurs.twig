@@ -8,7 +8,7 @@
   <div class="realisateurs">
  <h1> {{realisateur.nom}} {{realisateur.prenom}} </h1>
 
-  <a href="realisateur/{{ realisateur.id}}"><img   width='175px' height='250px' src="http://localhost/cinemamvcobjet/public/{{ realisateur.photo }}" ></a>
+  <a href="realisateur/{{ realisateur.id}}"><img   width='175px' height='250px' src="{{ realisateur.photo }}" ></a>
    <a href="updaterealisateur/{{ realisateur.id }}"> modifier </a>
     <a href="deleterealisateur/{{ realisateur.id }}"> supprimer </a>
 </div>

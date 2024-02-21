@@ -1,4 +1,4 @@
-<h1> ajout acteur Ã  un film
+<h1> ajout acteur à  un film
   <?= $film['titre'] ?><br>
   choisir un acteur <br>
   <form action="../ajoutacteur" method="post">

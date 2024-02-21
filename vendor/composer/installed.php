@@ -3,7 +3,7 @@
         'name' => '29010-75-15/cinemamvcobjet',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '9edf80ea66636598216a3d906390fbb65df6ffbc',
+        'reference' => 'b60cae76ccbf5245a6302d0c7fffcc46495897da',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         '29010-75-15/cinemamvcobjet' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '9edf80ea66636598216a3d906390fbb65df6ffbc',
+            'reference' => 'b60cae76ccbf5245a6302d0c7fffcc46495897da',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

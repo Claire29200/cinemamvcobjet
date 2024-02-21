@@ -9,7 +9,7 @@
 <h1>   <?= $film->getName() ?>
         <?= $film->getDate() ?></h1>
      
-       <a href="film/<?= $film->getId() ?>"><img src="http://localhost/cinemamvc/public/<?= $film->getAffiche() ?>"
+       <a href="film/<?= $film->getId() ?>"><img src="<?= $film->getAffiche() ?>"
             width='175px' height='250px'></a>
 
     <h1>réalisé par :
@@ -29,7 +29,7 @@
                 <?= $a->getPrenom() ?>
             </h1>
 
-            <a href="film/<?= $film->getId() ?>"><img src="http://localhost/cine/public/<?= $film->getActeurs() ?>"
+            <a href="film/<?= $film->getId() ?>"><img src="<?= $film->getActeurs() ?>"
                     width='175px' height='250px'></a>
         </div>
     <?php }

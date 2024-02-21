@@ -51,9 +51,8 @@ class FilmsDao extends BaseDao
         $film->setId_film($fields['id_film'])
               ->setName($fields['nom'])
               ->setDate($fields['date_de_sortie'])
-              ->setAffiche($fields['affiche']) 
-              ->setGenre($fields['id_genre'])
-              ->setRealisateur($fields['id_realisateur']) ;    
+              ->setAffiche($fields['affiche']) ;
+             
              //var_dump($film);die();        
         return $film;
         
