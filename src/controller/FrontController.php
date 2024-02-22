@@ -118,8 +118,9 @@ class FrontController
 
        $genres = $this->genresService->getAllGenres();
        $realisateurs = $this->realisateursService->getAllRealisateurs();
+       $acteurs = $this->acteursService->getAllActors();
        //require './src/view/f_film.php'; // formulaire de creation du film.
-       echo $this->twig->render('f_film.twig', ["genres" => $genres, "realisateurs" => $realisateurs]);
+       echo $this->twig->render('f_film.twig', ["genres" => $genres, "realisateurs" => $realisateurs, "acteurs"=>$acteurs]);
 
    }
 
@@ -143,6 +144,13 @@ class FrontController
 
        //require './src/view/fa_film.php';
        echo $this->twig->render('addactortofilm.twig');
+   }
+
+   public function inscription() {
+    echo $this->twig->render('inscription.twig');
+   }
+   public function connexion() {
+    echo $this->twig->render('connexion.twig');
    }
 }
 

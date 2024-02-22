@@ -1,6 +1,4 @@
-<?php
-require 'src/view/header.php';
-?>
+
 <form action="addfilm" method="POST">
     <input type="text" name="titre" placeholder="titre">
     <input type="text" name="date_de_sortie" placeholder="date de sortie">
@@ -14,13 +12,7 @@ require 'src/view/header.php';
       {% endfor %}
     </select>
 
-<select name="id_real">
-        <option>choisir un realisateur</option>
-      
-     {%   for r in realisateurs %}
-            <option value={{ r.id_real }} > {{ r.nom }}  </option>
-      {% endfor %}
-    </select>
+
     {# <select name="id_realisateur">
         <option>choisir un realisateur</option>
         <?php
@@ -28,13 +20,7 @@ require 'src/view/header.php';
             <option value=<?= $r->getId() ?>> <?= $r->getNom() ?>     <?= $r->getPrenom() ?> </option>
         <?php } ?>
     </select> #}
-<select name="id_acteur">
-        <option>choisir un acteur</option>
-      
-     {%   for a in acteurs %}
-            <option value={{ a.id_acteur }} > {{ a.name }}  </option>
-      {% endfor %}
-    </select>
+
 
 
     <input type="submit" value="ajouter">

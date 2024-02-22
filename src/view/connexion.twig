@@ -1,0 +1,15 @@
+{% extends "base.twig" %}
+
+{% block title %} Se connecter {% endblock %}
+
+{% block content%}
+<pre>
+
+<h2> Entrez dans le monde du Cinéma</h2>
+<form action="connexion" method="POST">
+    <input type="email" name="email" placeholder="email">
+    <input type="password" name="password" placeholder="Mot-de-passe">   
+    <input type="submit" value="ajouter">
+</form>
+
+{% endblock %}

@@ -13,6 +13,7 @@ use Twig\Loader\FilesystemLoader;
 $loader = new FilesystemLoader(__DIR__ . '/src/view');
 $twig = new Environment($loader, ['cache' => false, 'debug' => true]);
 $twig->addExtension(new \Twig\Extension\DebugExtension());
+//$twig->addGlobal('session', $_SESSION);
 
 
 $fc = new FrontController($twig);
@@ -120,6 +121,13 @@ $route->respond('POST', '/addActeurToFilm', function ($request, $response) use (
 
 $route->respond('GET', '/deletefilm/[:id]', function ($request, $response) use ($bc) {
    $bc->deletefilm($request->id);
+});
+
+$route->respond('GET', '/inscription', function ($request) use ($fc) {
+   $fc->inscription();
+});
+$route->respond('GET', '/connexion', function ($request) use ($fc) {
+   $fc->connection();
 });
 
 $route->dispatch();

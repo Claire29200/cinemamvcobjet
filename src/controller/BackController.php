@@ -58,4 +58,9 @@ class BackController
     {
         $this->filmService->addActeurToFilm($lepost);
     }
+
+    public function inscription($lepost)
+    { 
+        $this->userService->inscription($lepost);
+    }
 }

@@ -1,0 +1,39 @@
+{% extends "base.twig" %}
+
+{% block title %} Ajouter un acteur {% endblock %}
+
+{% block content%}
+<pre>
+
+<h2> Inscrivez-vous pour profiter de notre site! </h2>
+<div>
+<form action="inscription" method="post">
+<div>
+<label for="nom">Votre nom</label>
+<input type="text" id="nom" name="nom" placeholder="Martin" required>
+</div>
+<div>
+<label for="prenom">Votre prenom</label>
+<input type="text" id="prenom" name="prenom" placeholder="Bob" required>
+</div>
+<div>
+<label for="email">Votre e-mail</label>
+<input type="email" id="email" name="email" placeholder="monadresse@mail.com" required>
+</div>
+<div>
+<label for="password">Votre mot-de-passe</label>
+<input type="text" id="password" name="password" placeholder="mot-de-passe" required>
+</div>
+<select name="role" id="role" required>
+<option value="role" disabled selected hidden>Role</option>
+<option value="probleme-compte">Administrateur</option>
+<option value="question-produit">Utilisateur</option>
+</select>
+<div>
+<button type="submit">M'inscrire</button>
+</div>
+</form>
+</div>
+
+
+{% endblock %}
