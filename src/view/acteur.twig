@@ -5,9 +5,9 @@
 {% block content%}
 <section>
   <div class="acteur">
- <h1> {{acteur.nom}} {{acteur.prenom}} </h1>
+ <h1> {{acteur.firstname}} {{acteur.lastname}} </h1>
 
-<a href="acteur/{{ acteur.id}}"><img   width='175px' height='250px' src="{{ acteur.photo }}" ></a>
+<p>{{ acteur.id}}"><img max-width='200px' src="{{ acteur.photo }}" ></p>
 <a href="updateacteur/{{ acteur.id }}"> modifier </a>
 <a href="deleteacteur/{{ acteur.id }}"> supprimer </a>
 </div>

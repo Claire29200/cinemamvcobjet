@@ -88,5 +88,35 @@ class ActeursDao extends BaseDao
             throw new \PDOException($stmt->errorInfo()[2]);
         }
     }
+    public function update(Acteurs $acteurs)
+    {
+        $stmt = $this->db->prepare('UPDATE acteurs SET nom=:nom,prenom=:prenom,photo=:photo,
+WHERE acteurs.id_acteur= :id');
+        $res = $stmt->execute(
+            [
+                ':id' => $acteurs->getId(),
+                ':prenom' => $acteurs->getFirstName(),
+                ':nom' => $acteurs->getLastName(),
+                ':photo' => $acteurs->getPhoto(),
+                
+
+            ]
+        );
+        if (!$res) {
+            throw new \PDOException($stmt->errorInfo()[2]);
+        }
+    }
+    public function delete(Acteurs $acteurs)
+    {
+        $stmt = $this->db->prepare('DELETE FROM `acteurs` WHERE id = :idacteur;  DELETE from acteurs WHERE id=:idacteur');
+        $res = $stmt->execute([
+
+            ':idfilm' => $acteur->getId()
+        ]);
+        if (!$res) {
+            throw new \PDOException($stmt->errorInfo()[2]);
+        }
+
+    }
 }
 ?>

@@ -3,12 +3,13 @@
 {% block title %} Films {% endblock %}
 
 {% block content%}
+
 <section>
 {% for film in films %}
   <div class="films">
  <h1> {{film.name}} </h1>
 
-  <a href="film/{{ film.id}}"><img   width='175px' height='250px' src="{{ film.affiche }}" ></a>
+  <a href="film/{{ film.id}}"><img   width='10%' src="{{ film.affiche }}" ></a>
    <a href="updatefilm/{{ film.id }}"> modifier </a>
     <a href="deletefilm/{{ film.id }}"> supprimer </a>
 <a href="daddActorToFilm/{{ film.id }}"> ajouter un acteur </a>

@@ -31,6 +31,17 @@ class ActeursService{
         $acteur = $this->acteursDao->createObjectFromFields($acteurData);
         $this->acteursDao->create($acteur);
     }
+    public function update($acteurData)
+    {
+        $acteur = $this->acteursDao->createObjectFromFields($acteurData);
+        $this->acteursDao->update($acteur);
+    }
+
+    public function delete($acteursData)
+    {
+        $acteur = $this->acteursDao->findById($id);
+        $this->acteursDao->delete($acteur);
+    }
 
 }
 ?>

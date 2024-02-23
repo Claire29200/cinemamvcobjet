@@ -8,9 +8,9 @@
 <div class="film">
  <h1> {{film.nom}} {{film.affiche}} </h1>
 
-  <a href="film/{{ film.id}}"><img   width='175px' height='250px' src="{{ film.affiche }}" ></a>
+  <a href="film/{{ film.id}}"><img   width='10%' src="{{ film.affiche }}" ></a>
  <h1>réalisé par :
-{{film.realisateur.nom}}&nbsp;{{film.realisateur.prenom}}
+{{film.realisateur.firstname}}&nbsp;{{film.realisateur.lastname}}
        </h1>
     
 <h1>les acteurs principaux:

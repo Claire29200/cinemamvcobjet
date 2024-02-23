@@ -13,7 +13,7 @@ require_once 'src/view/header.php';
             </h1>
 
             <a href="realisateur/<?= $realisateur->getId() ?>"><img src="http://localhost/cinemamvcobjet/public/<?= $realisateur->getPhoto() ?>"
-                    width='175px' height='250px'></a>
+                    width='80%'></a>
             <a href="updaterealisateur/<?= $realisateur->getId() ?>"> modifier </a>
             <a href="deleterealisateur/<?= $realisateur->getId() ?>"> supprimer </a>
             

@@ -1,0 +1,16 @@
+{% extends "base.twig" %}
+
+{% block title %} modifier un acteur {% endblock %}
+
+{% block content%}
+<pre>
+
+<h2> Modifier un acteur </h2>
+<form action="updateacteur" method="POST">
+    <input type="text" name="prenom" placeholder="prenom">
+    <input type="text" name="nom" placeholder="nom">
+    <input type="text" name="photo" placeholder="photo">
+    <input type="submit" value="modifier">
+</form>
+
+{% endblock %}

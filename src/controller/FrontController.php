@@ -106,6 +106,16 @@ class FrontController
        echo $this->twig->render('addacteur.twig');
        //require './src/view/f_acteur.php'; // formulaire de creation de l'acteur.
    }
+   public function updateacteur($id)
+   {
+
+       $genres = $this->genreService->getAllGenres();
+       $realisateurs = $this->realisateurService->getAllRealisateurs();
+       $film = $this->filmService->getOneFilm($id);
+       //require './src/view/u_film.php'; // formulaire de creation du film.
+       echo $this->twig->render('updateacteur.twig');
+
+   }
 
    public function addrealisateur()
    {

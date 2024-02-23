@@ -87,6 +87,12 @@ $route->respond('POST', '/addacteur', function ($request, $response) use ($bc) {
    $response->redirect('acteurs')->send();
 });
 
+$route->respond('POST', '/updateacteur', function ($request, $response) use ($bc) {
+   //paramsPost recupere les données du formulaire.
+   $bc->updateActeur($request->paramsPost()); // envoi $_POST au controller par la fonction addacteur
+   $response->redirect('acteurs')->send();
+});
+
 $route->respond('GET', '/addrealisateur', function () use ($fc) {
    $fc->addrealisateur();  // affichage d'un formulaire de creation de réalisateur
 });
@@ -127,7 +133,7 @@ $route->respond('GET', '/inscription', function ($request) use ($fc) {
    $fc->inscription();
 });
 $route->respond('GET', '/connexion', function ($request) use ($fc) {
-   $fc->connection();
+   $fc->connexion();
 });
 
 $route->dispatch();

@@ -8,9 +8,9 @@
 {# {{ dump(acteurs)}} #}
 {% for acteur in acteurs %}
   <div class="acteurs">
- <h1> {{acteur.lastname}} {{acteur.firstname}} </h1>
+ <h1> {{acteur.firstname}} {{acteur.lastname}} </h1>
 
-  <a href="acteur/{{ acteur.id}}"><img   width='175px' height='250px' src="{{ acteur.photo }}" ></a>
+  <a href="acteur/{{ acteur.id}}"><img  width='10%' src="{{ acteur.photo }}" ></a>
    <a href="updateacteur/{{ acteur.id }}"> modifier </a>
     <a href="deleteacteur/{{ acteur.id }}"> supprimer </a>
 </div>
